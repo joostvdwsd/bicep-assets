@@ -2981,7 +2981,7 @@ __metadata:
     yaml: "npm:^2.4.5"
     zip-lib: "npm:^1.0.4"
   bin:
-    bicep-assets: bin/build.js
+    bicep-assets: bin/build-ts.js
   languageName: unknown
   linkType: soft
 
