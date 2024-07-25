@@ -7,9 +7,9 @@ import { join, resolve, extname } from 'path';
 import { CopyBuildPlugin } from '../build-plugins/copy';
 import { NodeJsBuildPlugin } from '../build-plugins/nodejs';
 import { ViteBuildPlugin } from '../build-plugins/vite';
-import { Configuration } from '../config';
-import { IBuildCommand, PluginManager } from '../plugin-manager';
-import { Manifest } from '../types';
+import { Configuration } from '../configuration';
+import { Manifest } from '../utils/manifest';
+import { IBuildCommand, PluginManager } from '../utils/plugin-manager';
 
 export class BuildCommand extends Command {
   static paths = [

@@ -15,10 +15,6 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:."\
     },\
     {\
-      "name": "azure-custom-resources",\
-      "reference": "workspace:workspaces/packages/azure-custom-resources"\
-    },\
-    {\
       "name": "bicep-assets",\
       "reference": "workspace:workspaces/packages/bicep-assets"\
     }\
@@ -26,7 +22,6 @@ const RAW_RUNTIME_STATE =
   "enableTopLevelFallback": true,\
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "fallbackExclusionList": [\
-    ["azure-custom-resources", ["workspace:workspaces/packages/azure-custom-resources"]],\
     ["bicep-assets", ["workspace:workspaces/packages/bicep-assets"]],\
     ["bicep-assets-root", ["workspace:."]]\
   ],\
@@ -4036,16 +4031,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["azure-custom-resources", [\
-      ["workspace:workspaces/packages/azure-custom-resources", {\
-        "packageLocation": "./workspaces/packages/azure-custom-resources/",\
+      ["npm:0.0.2", {\
+        "packageLocation": "../../.yarn/berry/cache/azure-custom-resources-npm-0.0.2-54d4cbdbd4-10c0.zip/node_modules/azure-custom-resources/",\
         "packageDependencies": [\
-          ["azure-custom-resources", "workspace:workspaces/packages/azure-custom-resources"],\
+          ["azure-custom-resources", "npm:0.0.2"],\
           ["@azure/functions", "npm:4.5.0"],\
-          ["@types/node", "npm:20.14.12"],\
-          ["bs58", "npm:6.0.0"],\
-          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
+          ["bs58", "npm:6.0.0"]\
         ],\
-        "linkType": "SOFT"\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["babel-jest", [\
@@ -4229,7 +4222,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:20.14.12"],\
           ["adm-zip", "npm:0.5.14"],\
           ["axios", "npm:1.7.2"],\
-          ["azure-custom-resources", "workspace:workspaces/packages/azure-custom-resources"],\
+          ["azure-custom-resources", "npm:0.0.2"],\
           ["clipanion", "virtual:79bd705dbf206d6bd5005d5f35924cece8938d35eed524c3106dd8d8c6d56228b3ffaf764b0b711713e3d2dfeba0155ac81f45b66f87f4323e61be254172e9b5#npm:4.0.0-rc.3"],\
           ["cross-spawn", "npm:7.0.3"],\
           ["enquirer", "npm:2.4.1"],\

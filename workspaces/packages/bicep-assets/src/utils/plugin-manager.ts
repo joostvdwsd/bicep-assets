@@ -1,4 +1,4 @@
-import { AssetDefinition } from './config';
+import { AssetDefinition } from '../configuration';
 
 export interface IBuildCommand {
   name: string;

@@ -2,17 +2,32 @@
   "name": "bicep-assets",
   "packageManager": "yarn@4.3.1",
   "version": "0.0.0",
-  "bin": "bin/build.js",
+  "bin": "bin/build-ts.js",
   "scripts": {
-    "build:bicep": "az bicep build -f ./res/bootstrap.bicep"
+    "build:bicep": "az bicep build -f ./res/bootstrap.bicep",
+    "build": "rm -f tsconfig.tsbuildinfo && tsc --noEmit false",
+    "copy-readme": "cp ../../../README.md .",
+    "copy-licence": "cp ../../../LICENSE .",
+    "prepack": "yarn copy-readme && yarn copy-licence && yarn build",
+    "postpack": "rm -rf lib"    
   },
+  "publishConfig": {
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "bin": "bin/build.js"
+  },
+  "files": [
+    "bin",
+    "res",
+    "lib"
+  ],
   "devDependencies": {
     "@types/adm-zip": "^0",
     "@types/cross-spawn": "^6.0.6",
     "@types/folder-hash": "^4",
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.12",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "@azure/arm-resources": "^5.2.0",
@@ -23,7 +38,7 @@
     "@azure/storage-blob": "^12.23.0",
     "adm-zip": "^0.5.14",
     "axios": "^1.7.2",
-    "azure-custom-resources": "workspace:^",
+    "azure-custom-resources": "^0.0.2",
     "clipanion": "^4.0.0-rc.3",
     "cross-spawn": "^7.0.3",
     "enquirer": "^2.4.1",
@@ -32,5 +47,13 @@
     "typanion": "^3.14.0",
     "yaml": "^2.4.5",
     "zip-lib": "^1.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joostvdwsd/bicep-assets",
+    "directory": "workspaces/packages/bicep-assets"
+  },
+  "engines": {
+    "node": ">=18.12.0"
   }
 }

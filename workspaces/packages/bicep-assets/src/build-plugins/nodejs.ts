@@ -3,8 +3,8 @@ import { writeFile } from 'fs/promises';
 import { join } from 'path';
 import * as t from 'typanion';
 
-import { AssetDefinition } from '../config';
-import { IBuildCommand, IBuildPlugin } from '../plugin-manager';
+import { AssetDefinition } from '../configuration';
+import { IBuildCommand, IBuildPlugin } from '../utils/plugin-manager';
 
 const isNodeConfiguration = t.isArray(t.isString());
 export type NodeConfiguration = t.InferType<typeof isNodeConfiguration>;

@@ -8,7 +8,7 @@ import { join } from 'path';
 import * as t from 'typanion';
 import { archiveFolder } from 'zip-lib';
 
-import { isManifest } from '../types';
+import { isManifest } from '../utils/manifest';
 
 export class UploadCommand extends Command {
   static paths = [

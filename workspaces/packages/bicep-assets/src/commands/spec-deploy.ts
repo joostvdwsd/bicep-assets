@@ -28,6 +28,7 @@ export class SpecDeployCommand extends Command {
   }
 
   deploySpec(bicep: string, name: string) {
+    // TODO: Use an SDK way of working which can reuse the functionality of other commands
     console.log(`Deploying '${this.prefix}-${name}' to '${this.resourceGroup}'`);
     sync('az', [
       'ts',

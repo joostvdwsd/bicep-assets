@@ -9,7 +9,7 @@ import { join, resolve } from 'path';
 import { archiveFolder } from 'zip-lib';
 
 import { NodeBuildCommand, NodeJsBuildPlugin } from '../build-plugins/nodejs';
-import { Configuration } from '../config';
+import { Configuration } from '../configuration';
 
 export class InitCommand extends Command {
   static paths = [
