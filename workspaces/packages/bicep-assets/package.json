@@ -9,7 +9,7 @@
     "copy-readme": "cp ../../../README.md .",
     "copy-licence": "cp ../../../LICENSE .",
     "prepack": "yarn copy-readme && yarn copy-licence && yarn build",
-    "postpack": "rm -rf lib"    
+    "postpack": "rm -rf lib"
   },
   "publishConfig": {
     "main": "./lib/index.js",
