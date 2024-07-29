@@ -15,6 +15,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:."\
     },\
     {\
+      "name": "account-setup",\
+      "reference": "workspace:workspaces/e2e-tests/bicep-assets-test"\
+    },\
+    {\
       "name": "bicep-assets",\
       "reference": "workspace:workspaces/packages/bicep-assets"\
     }\
@@ -22,6 +26,7 @@ const RAW_RUNTIME_STATE =
   "enableTopLevelFallback": true,\
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "fallbackExclusionList": [\
+    ["account-setup", ["workspace:workspaces/e2e-tests/bicep-assets-test"]],\
     ["bicep-assets", ["workspace:workspaces/packages/bicep-assets"]],\
     ["bicep-assets-root", ["workspace:."]]\
   ],\
@@ -231,6 +236,21 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@arcanis/slice-ansi", "npm:1.1.1"],\
           ["grapheme-splitter", "npm:1.0.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@azure-rest/core-client", [\
+      ["npm:2.2.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@azure-rest-core-client-npm-2.2.0-08cae8dc07-10c0.zip/node_modules/@azure-rest/core-client/",\
+        "packageDependencies": [\
+          ["@azure-rest/core-client", "npm:2.2.0"],\
+          ["@azure/abort-controller", "npm:2.1.2"],\
+          ["@azure/core-auth", "npm:1.7.2"],\
+          ["@azure/core-rest-pipeline", "npm:1.16.2"],\
+          ["@azure/core-tracing", "npm:1.1.2"],\
+          ["@azure/core-util", "npm:1.9.1"],\
+          ["tslib", "npm:2.6.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2384,6 +2404,14 @@ const RAW_RUNTIME_STATE =
           ["undici-types", "npm:5.26.5"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:20.14.13", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-node-npm-20.14.13-41f92d384c-10c0.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:20.14.13"],\
+          ["undici-types", "npm:5.26.5"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@types/responselike", [\
@@ -3653,6 +3681,25 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["account-setup", [\
+      ["workspace:workspaces/e2e-tests/bicep-assets-test", {\
+        "packageLocation": "./workspaces/e2e-tests/bicep-assets-test/",\
+        "packageDependencies": [\
+          ["account-setup", "workspace:workspaces/e2e-tests/bicep-assets-test"],\
+          ["@azure-rest/core-client", "npm:2.2.0"],\
+          ["@azure/functions", "npm:4.5.0"],\
+          ["@azure/storage-blob", "npm:12.24.0"],\
+          ["@types/adm-zip", "npm:0.5.5"],\
+          ["@types/node", "npm:20.14.13"],\
+          ["adm-zip", "npm:0.5.14"],\
+          ["bicep-assets", "workspace:workspaces/packages/bicep-assets"],\
+          ["enquirer", "npm:2.4.1"],\
+          ["typanion", "npm:3.14.0"],\
+          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
     ["acorn", [\
       ["npm:8.12.1", {\
         "packageLocation": "../../.yarn/berry/cache/acorn-npm-8.12.1-610871d57c-10c0.zip/node_modules/acorn/",\
@@ -4228,6 +4275,7 @@ const RAW_RUNTIME_STATE =
           ["enquirer", "npm:2.4.1"],\
           ["esbuild", "npm:0.21.5"],\
           ["folder-hash", "npm:4.0.4"],\
+          ["mime", "npm:4.0.4"],\
           ["ts-node", "virtual:5319c6f3749fb3d2eb61f041789fcfce318de54f18be6866d3c1941928a5055fc81fc80f6dd419c7ddab353713b4e1ef7b03c14388607f9f6abc2954bf3f107d#npm:10.9.2"],\
           ["typanion", "npm:3.14.0"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
@@ -8087,6 +8135,15 @@ const RAW_RUNTIME_STATE =
           ["micromatch", "npm:4.0.7"],\
           ["braces", "npm:3.0.3"],\
           ["picomatch", "npm:2.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["mime", [\
+      ["npm:4.0.4", {\
+        "packageLocation": "../../.yarn/berry/cache/mime-npm-4.0.4-03acf1c40a-10c0.zip/node_modules/mime/",\
+        "packageDependencies": [\
+          ["mime", "npm:4.0.4"]\
         ],\
         "linkType": "HARD"\
       }]\

@@ -1,0 +1,5 @@
+subscription: 5cbc3b4c-c4d3-4adb-a492-c29f133c4516
+resourceGroup: ne-bicep-assets-rg
+assets:
+  - test-folder-2
+  - bicep-assets-config.yaml

@@ -44,6 +44,7 @@
     "enquirer": "^2.4.1",
     "esbuild": "^0.21.5",
     "folder-hash": "^4.0.4",
+    "mime": "^4.0.4",
     "typanion": "^3.14.0",
     "yaml": "^2.4.5",
     "zip-lib": "^1.0.4"

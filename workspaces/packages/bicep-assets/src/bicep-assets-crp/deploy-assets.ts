@@ -2,6 +2,7 @@ import { InvocationContext } from '@azure/functions';
 import { BlobSASPermissions, BlobServiceClient } from '@azure/storage-blob';
 import AdmZip from 'adm-zip';
 import { CacheHandler, Request, RequestInputError } from 'azure-custom-resources';
+import mime from 'mime';
 import { join } from 'path';
 import * as t from 'typanion';
 
@@ -138,7 +139,11 @@ export class DeployAssetsCrp implements CacheHandler {
     for (const entry of zip.getEntries()) {
       const data = entry.getData();
       const fileName = request.target_account_folder ? join(request.target_account_folder, entry.name) : entry.name;
-      await targetContainerClient.uploadBlockBlob(fileName, data, data.length);
+      await targetContainerClient.uploadBlockBlob(fileName, data, data.length, {
+        blobHTTPHeaders: {
+          blobContentType: mime.getType(fileName) ?? undefined,
+        },
+      });
     }
 
     // always return updated. We do not care about cleanup of created resources in this scenario

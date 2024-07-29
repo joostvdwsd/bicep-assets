@@ -1,0 +1,36 @@
+{
+  "name": "account-setup",
+  "scripts": {
+    "build": "yarn bicep-assets build",
+    "deploy:bicep": "az stack group create --name ne-bicep-assets-ds -g ne-bicep-assets-rg -f ./main.bicep --dm none --aou deleteAll --yes",
+    "deploy:bicep-test": "yarn bicep-assets deploy && az stack group create --name ne-bicep-assets-test-ds -g ne-bicep-assets-rg -f ./main-test.bicep --dm none --aou deleteAll --yes",
+    "deploy:bicep-test2": "yarn bicep-assets deploy && az deployment group create -g ne-bicep-assets-rg -f ./main-test.bicep",
+    "deploy:zip-bicep": "az stack group create --name ne-bicep-assets-zipdeploy-ds -g ne-bicep-assets-rg -f ./assets-sa-code.bicep --dm none --aou deleteAll --yes --parameters storageAccountName=bicepassetssdnwausk76ooe",
+    "deploy:zip-asset": "yarn bicep-assets upload -s bicepassetssdnwausk76ooe -a bicep-assets-crp -c zipdeploy -b bicep-assets-crp.zip",
+    "deploy:zip": "yarn build && yarn deploy:zip-asset && yarn deploy:zip-bicep",
+    "deploy": "yarn build && yarn deploy:bicep"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0",
+    "@types/node": "^20.14.8",
+    "bicep-assets": "workspace:^",
+    "typescript": "^5.5.2"
+  },
+  "bicepAssets": {
+    "resourceGroup": "ne-bicep-assets-rg",
+    "subscription": "5cbc3b4c-c4d3-4adb-a492-c29f133c4516",
+    "plugins": {
+      "nodejs": [
+        "src/(.*)/index\\.ts"
+      ]
+    }
+  },
+  "dependencies": {
+    "@azure-rest/core-client": "^2.1.0",
+    "@azure/functions": "^4.5.0",
+    "@azure/storage-blob": "^12.23.0",
+    "adm-zip": "^0.5.14",
+    "enquirer": "^2.4.1",
+    "typanion": "^3.14.0"
+  }
+}
