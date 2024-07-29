@@ -42,7 +42,7 @@
     "clipanion": "^4.0.0-rc.3",
     "cross-spawn": "^7.0.3",
     "enquirer": "^2.4.1",
-    "esbuild": "^0.21.5",
+    "esbuild": "^0.23.0",
     "folder-hash": "^4.0.4",
     "mime": "^4.0.4",
     "typanion": "^3.14.0",
