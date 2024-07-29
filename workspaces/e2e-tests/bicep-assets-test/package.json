@@ -10,11 +10,12 @@
     "deploy:zip": "yarn build && yarn deploy:zip-asset && yarn deploy:zip-bicep",
     "deploy": "yarn build && yarn deploy:bicep"
   },
+  "private": true,
   "devDependencies": {
     "@types/adm-zip": "^0",
-    "@types/node": "^20.14.8",
+    "@types/node": "^22.0.0",
     "bicep-assets": "workspace:^",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   },
   "bicepAssets": {
     "resourceGroup": "ne-bicep-assets-rg",
@@ -32,5 +33,13 @@
     "adm-zip": "^0.5.14",
     "enquirer": "^2.4.1",
     "typanion": "^3.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joostvdwsd/bicep-assets",
+    "directory": "workspaces/e2e-tests/bicep-assets-test"
+  },
+  "engines": {
+    "node": ">=18.12.0"
   }
 }

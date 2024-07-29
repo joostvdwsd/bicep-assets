@@ -25,7 +25,7 @@
     "@types/adm-zip": "^0",
     "@types/cross-spawn": "^6.0.6",
     "@types/folder-hash": "^4",
-    "@types/node": "^20.14.12",
+    "@types/node": "^22.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
