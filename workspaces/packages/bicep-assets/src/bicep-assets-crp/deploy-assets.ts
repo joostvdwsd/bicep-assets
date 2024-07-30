@@ -138,7 +138,8 @@ export class DeployAssetsCrp implements CacheHandler {
 
     for (const entry of zip.getEntries()) {
       const data = entry.getData();
-      const fileName = request.target_account_folder ? join(request.target_account_folder, entry.name) : entry.name;
+
+      const fileName = request.target_account_folder ? join(request.target_account_folder, entry.entryName) : entry.entryName;
       await targetContainerClient.uploadBlockBlob(fileName, data, data.length, {
         blobHTTPHeaders: {
           blobContentType: mime.getType(fileName) ?? undefined,

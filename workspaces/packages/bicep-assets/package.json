@@ -2,12 +2,14 @@
   "name": "bicep-assets",
   "packageManager": "yarn@4.3.1",
   "version": "0.0.0",
-  "bin": "bin/build-ts.js",
+  "bin": "bin/build.js",
   "scripts": {
     "build:bicep": "az bicep build -f ./res/bootstrap.bicep",
     "build": "rm -f tsconfig.tsbuildinfo && tsc --noEmit false",
     "copy-readme": "cp ../../../README.md .",
     "copy-licence": "cp ../../../LICENSE .",
+    "watch-tsc": "tsc --noEmit false --watch",
+    "watch": "yarn prepare-manifest watch-tsc",
     "prepack": "yarn copy-readme && yarn copy-licence && yarn build",
     "postpack": "rm -rf lib"
   },
@@ -56,5 +58,7 @@
   },
   "engines": {
     "node": ">=18.12.0"
-  }
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts"
 }
