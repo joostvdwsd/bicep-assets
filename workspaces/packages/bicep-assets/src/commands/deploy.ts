@@ -17,8 +17,12 @@ export class DeployCommand extends Command {
 
   distFolder = Option.String('--dist-folder', '.bicep-assets');
 
+  executeBuild = Option.Boolean('--build', true);
+
   async execute() {
-    this.cli.run(['build']);
+    if (this.executeBuild) {
+      await this.cli.run(['build']);
+    }
 
     const manifestFile = join(this.distFolder, 'manifest.json');
 
