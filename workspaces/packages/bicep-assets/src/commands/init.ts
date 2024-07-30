@@ -3,7 +3,7 @@ import { DefaultAzureCredential } from '@azure/identity';
 import axios from 'axios';
 import { Command, Option } from 'clipanion';
 import { mkdtemp, readFile, rm } from 'fs/promises';
-import { readFileSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import { tmpdir } from 'os';
 import { join, resolve } from 'path';
 import { archiveFolder } from 'zip-lib';
@@ -95,8 +95,10 @@ export class InitCommand extends Command {
   }
 
   async uploadCustomResourceProviderPackage(config: Configuration, uploadCRPUrl: string) {
+    const isJs = existsSync(resolve(__dirname, '../bicep-assets-crp/index.js'));
+
     const plugin = new NodeJsBuildPlugin();
-    const build = new NodeBuildCommand('bicep-assets-crp', resolve(__dirname, '../bicep-assets-crp/index.ts'), plugin);
+    const build = new NodeBuildCommand('bicep-assets-crp', resolve(__dirname, `../bicep-assets-crp/index.${isJs ? 'js' : 'ts'}`), plugin);
 
     const tempFolder = await mkdtemp(tmpdir());
     const buildFolder = await mkdtemp(`${tmpdir()}-build`);
