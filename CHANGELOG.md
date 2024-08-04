@@ -4,6 +4,18 @@
 All notable changes to this project will be documented in this file
 
 
+## [0.0.3](https://github.com/joostvdwsd/bicep-assets/compare/v0.0.2...v0.0.3) (Tue Jul 30 2024)
+
+### fix
+
+* Runtime selection of own CRP code ([9d17bbd](https://github.com/joostvdwsd/bicep-assets/commit/9d17bbde98b8bea287867cfd1d9bb216f9af5995))
+
+* Await build during deploy ([9cc8e35](https://github.com/joostvdwsd/bicep-assets/commit/9cc8e3530fe87a3d8dab89118d6c86d65cdb20f1))
+
+### feat
+
+* Add mimetypes to extracted blobs ([ee62e12](https://github.com/joostvdwsd/bicep-assets/commit/ee62e1280c29611e927132204d025bc014d9ca44))
+
 ## [0.0.2](https://github.com/joostvdwsd/bicep-assets/compare/v0.0.1...v0.0.2) (Mon Jul 29 2024)
 
 ### feat
