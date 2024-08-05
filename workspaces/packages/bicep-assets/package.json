@@ -7,10 +7,11 @@
     "build:bicep": "az bicep build -f ./res/bootstrap.bicep",
     "build": "rm -f tsconfig.tsbuildinfo && tsc --noEmit false",
     "copy-readme": "cp ../../../README.md .",
+    "copy-readme-docs": "cp -R ../../../docs .",
     "copy-licence": "cp ../../../LICENSE .",
     "watch-tsc": "tsc --noEmit false --watch",
     "watch": "yarn prepare-manifest watch-tsc",
-    "prepack": "yarn copy-readme && yarn copy-licence && yarn build",
+    "prepack": "yarn copy-readme && yarn copy-readme-docs && yarn copy-licence && yarn build",
     "postpack": "rm -rf lib"
   },
   "publishConfig": {
@@ -21,7 +22,8 @@
   "files": [
     "bin",
     "res",
-    "lib"
+    "lib",
+    "docs"
   ],
   "devDependencies": {
     "@types/adm-zip": "^0",
