@@ -4,9 +4,17 @@ Bicep assets is a tool to add a simple, code completed way of working with local
 
 ![NPM Version](https://img.shields.io/npm/v/bicep-assets)
 
-# How would you use this
+# Topics
+- [How would you use this](#how-would-you-use-this)
+- [Installation](#installation)
+- [Available bicep/ARM Modules](#available-biceparm-modules)
+- [Build phase](#build-phase)
+  - [Generation of biceps-assets.bicep](#generation-of-bicep-assetsbicep)
+  - [Build plugins](#build-plugins)
+- [Explanation why this was created](#explanation-why-this-was-created)
 
-Assume a generated static website
+
+# How would you use this
 
 ## Configure the asset build
 
@@ -66,7 +74,7 @@ Deploy the template specs so you can use them in bicep
 $ bicep-assets spec deploy -g my-resource-group
 ```
 
-# Available modules
+# Available bicep/arm modules
 
 ## Copy asset
 
@@ -149,6 +157,41 @@ module useAsset './my-module' = {
 | Name | Type | Description |
 | :- | :-: | :- |
 | downloadSasUrl | Asset | The asset to deploy |
+
+# Build phase
+
+## Generation of bicep-assets.bicep
+
+Bicep assets has a build phase before deployment. In this phase the *bicep-assets.bicep* file is generated. This file is used to import assets in your own bicep file.
+
+## Build plugins
+
+By default bicep assets can be used to copy files and folders into the azure space. However, there is also the option for build plugins to generate the content of the asset before deployment.
+
+| Plugin | Description |
+| :- | :- |
+| vite | Build a static frontend using vite. This will call the vite command in the specified path and use the output param to redirect teh output in the asset storage |
+| nodejs | This will bundle a nodejs application as a full functioning function app (v4) |
+| << t.b.d. >> | Plugins will be added. Currently its node oriented but this is not the target state. There will follow plugins to generate a good python or powershell function (and others) | 
+
+# Explanation why this was created
+
+Originally we worked primarily with AWS in my company using CDK. A full integrated way of working was possible due to the asset management in CDK. We could execute build commands and use the output directly in the deployment.
+
+When we moved more towards azure I thought bicep was a decent tool and maybe for our less technical end users better then AWS CDK.
+
+However, using bicep I quickly discovered a very frustrating flow:
+1. create a function app (v4) in bicep including storage accounts
+2. upload the function source to the storage account created in step 1
+3. create a zipdeploy package to deploy the function
+
+Even in a simple variant we had 2 deployments separated by an upload. When the application grows this becomes even more troublesome.
+
+With this cli application everything can be orchestrated in 1 bicep deployment which adds
+- reproducibility
+- consistency
+- ease of use
+- standardizing way of workings
 
 # How does it work
 
