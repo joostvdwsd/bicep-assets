@@ -4,6 +4,18 @@
 All notable changes to this project will be documented in this file
 
 
+## [0.0.4](https://github.com/joostvdwsd/bicep-assets/compare/v0.0.3...v0.0.4) (Mon Aug 05 2024)
+
+### docs
+
+* Initial docs ([978428f](https://github.com/joostvdwsd/bicep-assets/commit/978428f98490fefa690d3b9a2e3c1608b6b02fbf))
+
+* Added docs ([8e87730](https://github.com/joostvdwsd/bicep-assets/commit/8e877309c5197ab564d76ce14afad78db3616237))
+
+### fix
+
+* Reverted package.json ([8fe3a4a](https://github.com/joostvdwsd/bicep-assets/commit/8fe3a4ad4e6847e193c9c10ca42ed711f9849776))
+
 ## [0.0.3](https://github.com/joostvdwsd/bicep-assets/compare/v0.0.2...v0.0.3) (Tue Jul 30 2024)
 
 ### fix
