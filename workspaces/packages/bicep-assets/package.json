@@ -14,6 +14,19 @@
     "prepack": "yarn copy-readme && yarn copy-readme-docs && yarn copy-licence && yarn build",
     "postpack": "rm -rf lib"
   },
+  "keywords": [
+    "bicep",
+    "azure",
+    "arm",
+    "assets",
+    "files",
+    "code completion",
+    "build plugins",
+    "azure functions",
+    "asset-copy",
+    "asset-extract",
+    "asset-sas"
+  ],
   "publishConfig": {
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",
