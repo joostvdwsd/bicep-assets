@@ -29,12 +29,17 @@ $ bicep-assets deploy
 ```bicep
 import { assets } from './bicep-assets.bicep'
 
-module assetCopy 'ts/shared:bicep-assets-extract:1.0.0' = {
+resource staticStiteStorageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+  name: 'staticStiteStorageAccount'
+  kind: 'StorageV2'
+}
+
+module assetExtract 'ts/shared:bicep-assets-extract:1.0.0' = {
   name: 'Deploy static website'
   params: {
     asset: assets.static_frontend
     target: {
-      storageAccount: assetStorage.name
+      storageAccount: staticStiteStorageAccount.name
       container: '$web'
     }
   }
