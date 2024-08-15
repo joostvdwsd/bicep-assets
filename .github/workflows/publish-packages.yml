@@ -5,8 +5,9 @@ on:
         bummpType:
           description: 'Use a custom bump type'
           type: choice
-          required: false
+          default: none
           options:
+            - none
             - graduate
             - major
             - minor
@@ -21,7 +22,7 @@ permissions:
   id-token: write
 
 env:
-  BUMP_TYPE: ${{ inputs.bummpType != '' && format('--bump-type {0}', inputs.bummpType) || '' }}
+  BUMP_TYPE: ${{ inputs.bummpType != 'none' && format('--bump-type {0}', inputs.bummpType) || '' }}
 
 jobs:
   Build-packages:
