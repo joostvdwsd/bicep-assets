@@ -4,6 +4,7 @@ on:
     inputs:
         bummpType:
           description: 'Use a custom bump type'
+          type: choice
           required: false
           options:
             - graduate
@@ -20,7 +21,7 @@ permissions:
   id-token: write
 
 env:
-  BUMP_TYPE: ${{ inputs.logLevel != '' && format('--bump-type {0}', inputs.logLevel) || '' }}
+  BUMP_TYPE: ${{ inputs.bummpType != '' && format('--bump-type {0}', inputs.bummpType) || '' }}
 
 jobs:
   Build-packages:
