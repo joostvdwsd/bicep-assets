@@ -42,7 +42,7 @@
     "@types/adm-zip": "^0",
     "@types/cross-spawn": "^6.0.6",
     "@types/folder-hash": "^4",
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
@@ -59,7 +59,7 @@
     "clipanion": "^4.0.0-rc.3",
     "cross-spawn": "^7.0.3",
     "enquirer": "^2.4.1",
-    "esbuild": "^0.21.5",
+    "esbuild": "^0.23.0",
     "folder-hash": "^4.0.4",
     "mime": "^4.0.4",
     "typanion": "^3.14.0",

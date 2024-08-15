@@ -1,15 +1,12 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-/** @type {import('eslint').Linter.BaseConfig} */
+const globalConfig = require('@jwpkg/eslint-config');
 
-module.exports = {
-  extends: [
-    '@cp-utils/eslint-config',
-  ],
-  overrides: [{
+module.exports = [
+  ...globalConfig,
+  {
     files: ['**/package.json'],
     rules: {
       'eol-last': [2, 'always'],
     },
-  }],
-
-};
+  },
+];
