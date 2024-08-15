@@ -20,7 +20,7 @@ permissions:
   id-token: write
 
 env:
-  BUMP_TYPE: ${{ inputs.logLevel != '' && '--bump-type' + inputs.logLevel || '' }}
+  BUMP_TYPE: ${{ inputs.logLevel != '' && format('--bump-type {0}', inputs.logLevel) || '' }}
 
 jobs:
   Build-packages:
