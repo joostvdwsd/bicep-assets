@@ -13,7 +13,7 @@
   "private": true,
   "devDependencies": {
     "@types/adm-zip": "^0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.3.0",
     "bicep-assets": "workspace:^",
     "typescript": "^5.5.4"
   },
