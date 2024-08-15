@@ -6,7 +6,7 @@ import * as t from 'typanion';
 import { AssetDefinition } from '../configuration';
 import { IBuildCommand, IBuildPlugin } from '../utils/plugin-manager';
 
-const isNodeConfiguration = t.isArray(t.isString());
+export const isNodeConfiguration = t.isArray(t.isString());
 export type NodeConfiguration = t.InferType<typeof isNodeConfiguration>;
 
 export class NodeBuildCommand implements IBuildCommand {

@@ -94,7 +94,7 @@ export class InitCommand extends Command {
     return result.properties?.outputs;
   }
 
-  async uploadCustomResourceProviderPackage(config: Configuration, uploadCRPUrl: string) {
+  async uploadCustomResourceProviderPackage(_config: Configuration, uploadCRPUrl: string) {
     const isJs = existsSync(resolve(__dirname, '../bicep-assets-crp/index.js'));
 
     const plugin = new NodeJsBuildPlugin();

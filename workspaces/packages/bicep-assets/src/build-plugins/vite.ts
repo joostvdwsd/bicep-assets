@@ -6,7 +6,7 @@ import { AssetDefinition } from '../configuration';
 import { execCommandForPackagageManager } from '../utils/detect-package-manager';
 import { IBuildCommand, IBuildPlugin } from '../utils/plugin-manager';
 
-const isViteConfiguration = t.isOptional(t.isArray(t.isString()));
+export const isViteConfiguration = t.isOptional(t.isArray(t.isString()));
 export type ViteConfiguration = t.InferType<typeof isViteConfiguration>;
 
 export class ViteBuildCommand implements IBuildCommand {

@@ -7,7 +7,7 @@
   "devDependencies": {
     "@cp-utils/gitversion": "^0.0.50",
     "@jwpkg/constraints-config": "^0.0.1",
-    "@jwpkg/eslint-config": "^0.0.1",
+    "@jwpkg/eslint-config": "^0.0.2",
     "@types/node": "^22.3.0",
     "@yarnpkg/types": "^4.0.0",
     "eslint": "^9.9.0",
@@ -16,7 +16,7 @@
     "typescript": "^5.5.4"
   },
   "scripts": {
-    "eslint": "eslint **/*.ts",
+    "eslint": "eslint **/*.ts --no-warn-ignored",
     "build:all": "yarn validate:all && yarn build:packages",
     "build:packages": "yarn workspaces foreach -A run build",
     "validate:all": "yarn validate:constraints && yarn validate:lint",
@@ -26,7 +26,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/joostvdwsd/bicep-assets",
+    "url": "https://github.com/jwpkg/bicep-assets",
     "directory": "."
   },
   "engines": {
