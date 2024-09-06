@@ -5,9 +5,9 @@
     "workspaces/*/*"
   ],
   "devDependencies": {
-    "@cp-utils/gitversion": "^0.0.50",
     "@jwpkg/constraints-config": "^0.1.1",
     "@jwpkg/eslint-config": "^0.1.1",
+    "@jwpkg/gitversion": "^0.1.0",
     "@types/node": "^22.5.4",
     "@yarnpkg/types": "^4.0.0",
     "eslint": "^9.9.1",

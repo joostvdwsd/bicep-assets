@@ -851,31 +851,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cp-utils/gitversion@npm:^0.0.50":
-  version: 0.0.50
-  resolution: "@cp-utils/gitversion@npm:0.0.50"
-  dependencies:
-    "@yarnpkg/cli": "npm:^4.1.0"
-    "@yarnpkg/core": "npm:^4.0.3"
-    "@yarnpkg/fslib": "npm:^3.0.2"
-    "@yarnpkg/plugin-npm": "npm:^3.0.1"
-    "@yarnpkg/plugin-pack": "npm:^4.0.0"
-    axios: "npm:^1.6.5"
-    ci-info: "npm:^4.0.0"
-    clipanion: "npm:^4.0.0-rc.2"
-    colorize-node: "npm:^0.5.0"
-    cross-spawn: "npm:^7.0.3"
-    cross-spawn-extra: "npm:^2.1.0"
-    glob: "npm:^10.3.10"
-    queue-promise: "npm:^2.2.1"
-    semver: "npm:^7.6.0"
-    typanion: "npm:^3.14.0"
-  bin:
-    gitversion: bin/index.js
-  checksum: 10c0/91930fcb3e9e0341c7882d7f963ddf1cbea374442888d1b947fc4a7391ee641b97194ae9887fc3f6a4d78986c4bfce916d018e86c6ab037a99a2357dca047831
-  languageName: node
-  linkType: hard
-
 "@cspotcode/source-map-support@npm:^0.8.0":
   version: 0.8.1
   resolution: "@cspotcode/source-map-support@npm:0.8.1"
@@ -1476,6 +1451,31 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/274cfc0901eae12e197102bbc6cba44fa00f62a4cf94b40f5b872773f7f2574df046a6bd7e646f44e1a82ff3047f487901b446276b5e423666ae27223e5b5c9a
+  languageName: node
+  linkType: hard
+
+"@jwpkg/gitversion@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@jwpkg/gitversion@npm:0.1.0"
+  dependencies:
+    "@yarnpkg/cli": "npm:^4.1.0"
+    "@yarnpkg/core": "npm:^4.0.3"
+    "@yarnpkg/fslib": "npm:^3.0.2"
+    "@yarnpkg/plugin-npm": "npm:^3.0.1"
+    "@yarnpkg/plugin-pack": "npm:^4.0.0"
+    axios: "npm:^1.6.5"
+    ci-info: "npm:^4.0.0"
+    clipanion: "npm:^4.0.0-rc.2"
+    colorize-node: "npm:^0.5.0"
+    cross-spawn: "npm:^7.0.3"
+    cross-spawn-extra: "npm:^2.1.0"
+    glob: "npm:^10.3.10"
+    queue-promise: "npm:^2.2.1"
+    semver: "npm:^7.6.0"
+    typanion: "npm:^3.14.0"
+  bin:
+    gitversion: bin/index.js
+  checksum: 10c0/e660cbb0b14ae1c71d403e71547d0041e91274d8d239943ee7a5b0babe010b20d18456c3d4491049e75e04c554951af1506c9ded96f70b2ab7fdb309bfeea146
   languageName: node
   linkType: hard
 
@@ -3042,9 +3042,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bicep-assets-root@workspace:."
   dependencies:
-    "@cp-utils/gitversion": "npm:^0.0.50"
     "@jwpkg/constraints-config": "npm:^0.1.1"
     "@jwpkg/eslint-config": "npm:^0.1.1"
+    "@jwpkg/gitversion": "npm:^0.1.0"
     "@types/node": "npm:^22.5.4"
     "@yarnpkg/types": "npm:^4.0.0"
     eslint: "npm:^9.9.1"
