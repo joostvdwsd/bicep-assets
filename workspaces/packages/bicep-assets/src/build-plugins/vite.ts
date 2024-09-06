@@ -6,6 +6,7 @@ import { AssetDefinition } from '../configuration';
 import { execCommandForPackagageManager } from '../utils/detect-package-manager';
 import { IBuildCommand, IBuildPlugin } from '../utils/plugin-manager';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const isViteConfiguration = t.isOptional(t.isArray(t.isString()));
 export type ViteConfiguration = t.InferType<typeof isViteConfiguration>;
 

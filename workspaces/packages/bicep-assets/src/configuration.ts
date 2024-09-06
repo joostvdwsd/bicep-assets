@@ -60,7 +60,7 @@ export async function saveConfig(config: Configuration, cwd?: string) {
   return savePartialConfig(config, cwd);
 }
 
-async function savePartialConfig(config: PartialConfig, cwd?: string) {
+async function savePartialConfig(config: PartialConfig, _cwd?: string) {
   const data = YAML.stringify(config);
   await writeFile(defaultConfigFile, data, 'utf-8');
 }

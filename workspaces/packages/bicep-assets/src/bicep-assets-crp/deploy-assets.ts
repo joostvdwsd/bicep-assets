@@ -78,12 +78,12 @@ export class DeployAssetsCrp implements CacheHandler {
     throw new RequestInputError('Unknown request type');
   }
 
-  async copyAsset(request: CopyAssetRequest, context: InvocationContext) {
+  async copyAsset(request: CopyAssetRequest, _context: InvocationContext) {
     const targetClient = new BlobServiceClient(`https://${request.target_account_name}.blob.core.windows.net?${request.target_account_sas}`);
 
     try {
       await targetClient.createContainer(request.target_account_container);
-    } catch (error) {
+    } catch (_error) {
 
     }
     const targetContainerClient =  targetClient.getContainerClient(request.target_account_container);
@@ -119,12 +119,12 @@ export class DeployAssetsCrp implements CacheHandler {
     };
   }
 
-  async extractAsset(request: ExtractAssetRequest, context: InvocationContext) {
+  async extractAsset(request: ExtractAssetRequest, _context: InvocationContext) {
     const targetClient = new BlobServiceClient(`https://${request.target_account_name}.blob.core.windows.net?${request.target_account_sas}`);
 
     try {
       await targetClient.createContainer(request.target_account_container);
-    } catch (error) {
+    } catch (_error) {
 
     }
     const targetContainerClient =  targetClient.getContainerClient(request.target_account_container);
@@ -153,7 +153,7 @@ export class DeployAssetsCrp implements CacheHandler {
     };
   }
 
-  async generateAssetSasUrl(request: GenerateAssetSasUrlRequest, context: InvocationContext) {
+  async generateAssetSasUrl(request: GenerateAssetSasUrlRequest, _context: InvocationContext) {
     const blobClient = assetClient.getBlobClient(request.asset_filename);
 
     const url = await blobClient.generateSasUrl({
@@ -171,11 +171,11 @@ export class DeployAssetsCrp implements CacheHandler {
     };
   }
 
-  async delete(request: Request, context: InvocationContext) {
+  async delete(_request: Request, _context: InvocationContext) {
     return;
   }
 
-  async retrieve(request: Request, context: InvocationContext) {
+  async retrieve(_request: Request, _context: InvocationContext) {
     return {};
   }
 }

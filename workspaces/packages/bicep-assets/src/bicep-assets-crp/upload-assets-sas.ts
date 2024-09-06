@@ -10,7 +10,7 @@ const isUploadRequest = t.isObject({
 const assetContainerClient = BlobServiceClient.fromConnectionString(process.env.ASSET_CONNECTIONSTRING!).getContainerClient('assets');
 
 export class UploadAssetsSas implements ActionHandler {
-  async execute(request: Request, context: InvocationContext): Promise<CacheResponse> {
+  async execute(request: Request, _context: InvocationContext): Promise<CacheResponse> {
     if (!isUploadRequest(request.properties)) {
       throw new RequestInputError('Invalid request');
     }

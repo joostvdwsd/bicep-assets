@@ -1,12 +1,8 @@
 import { cp, stat } from 'fs/promises';
 import { basename, join } from 'path';
-import * as t from 'typanion';
 
 import { AssetDefinition } from '../configuration';
 import { IBuildCommand, IBuildPlugin } from '../utils/plugin-manager';
-
-const isViteConfiguration = t.isOptional(t.isArray(t.isString()));
-export type ViteConfiguration = t.InferType<typeof isViteConfiguration>;
 
 export class CopyBuildCommand implements IBuildCommand {
   constructor(public name: string, private path: string, public plugin: IBuildPlugin) {}
