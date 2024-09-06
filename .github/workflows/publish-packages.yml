@@ -45,9 +45,9 @@ jobs:
       - name: Build 🔧
         run: yarn build:all
 
-      # - name: Publish
-      #   run: yarn gitversion publish
-      #   env:
-      #     YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: Publish
+        run: yarn gitversion publish
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 
