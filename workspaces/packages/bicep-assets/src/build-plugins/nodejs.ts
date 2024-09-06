@@ -6,7 +6,8 @@ import * as t from 'typanion';
 import { AssetDefinition } from '../configuration';
 import { IBuildCommand, IBuildPlugin } from '../utils/plugin-manager';
 
-export const isNodeConfiguration = t.isArray(t.isString());
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const isNodeConfiguration = t.isArray(t.isString());
 export type NodeConfiguration = t.InferType<typeof isNodeConfiguration>;
 
 export class NodeBuildCommand implements IBuildCommand {

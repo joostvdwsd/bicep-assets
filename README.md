@@ -18,7 +18,8 @@ Bicep assets is a tool to add a simple, code completed way of working with local
 
 ## Configure the asset build
 
-```yaml (bicep-assets-config.yaml)
+> bicep-assets-config.yaml
+```yaml
 assets:
   - api.yaml
   - name: static_frontend
@@ -26,25 +27,23 @@ assets:
     plugin: vite
 ```
 
-## Deploy/Upload the generated assets
-
-```sh
-$ bicep-assets deploy
-```
-
 ## Use the asset and decide in bicep what to do with it
 
+> main.bicep
 ```bicep
 import { assets } from './bicep-assets.bicep'
 
+// Create a simple storage account to host a static site
 resource staticStiteStorageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: 'staticStiteStorageAccount'
   kind: 'StorageV2'
 }
 
+// Extract the website asset to the static site storage account using the custom resource provider
 module assetExtract 'ts/shared:bicep-assets-extract:1.0.0' = {
   name: 'Deploy static website'
   params: {
+    // Here we use the static frontend asset entry from the generated bicep file 'bicep-assets.bicep'
     asset: assets.static_frontend
     target: {
       storageAccount: staticStiteStorageAccount.name
@@ -52,6 +51,13 @@ module assetExtract 'ts/shared:bicep-assets-extract:1.0.0' = {
     }
   }
 }
+```
+
+## Deploy/Upload the generated assets and run your bicep deployment
+
+```sh
+$ bicep-assets deploy
+$ az stack group create --name static-site-stack -g static-site-rg -f main.bicep
 ```
 
 # Installation
