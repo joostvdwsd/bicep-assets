@@ -4,6 +4,24 @@
 All notable changes to this project will be documented in this file
 
 
+## [0.0.5](https://github.com/jwpkg/bicep-assets/compare/v0.0.4...v0.0.5) (Fri Sep 06 2024)
+
+### docs
+
+* Added docs ([5ca45bb](https://github.com/jwpkg/bicep-assets/commit/5ca45bb52bc6b3307b1f8390928149fb360b4c36))
+
+* Added docs ([3f7c701](https://github.com/jwpkg/bicep-assets/commit/3f7c701254f0398930986e3848efe8ee1a34edb7))
+
+### feat
+
+* UPgraded packages ([8ac12e1](https://github.com/jwpkg/bicep-assets/commit/8ac12e1d4071421fa4b140a7468294e5d06262d4))
+
+### chore
+
+* Upgraded dependencies ([df6527a](https://github.com/jwpkg/bicep-assets/commit/df6527a6ed0767e3044d84e4454d8f70fc028ffd))
+
+* Fixed linting ([1f61ad0](https://github.com/jwpkg/bicep-assets/commit/1f61ad0c4bfdb12567c6c496f8c78860cd6c1d8d))
+
 ## [0.0.4](https://github.com/joostvdwsd/bicep-assets/compare/v0.0.3...v0.0.4) (Mon Aug 05 2024)
 
 ### docs
