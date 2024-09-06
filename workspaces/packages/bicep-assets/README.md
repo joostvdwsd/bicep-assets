@@ -18,7 +18,8 @@ Bicep assets is a tool to add a simple, code completed way of working with local
 
 ## Configure the asset build
 
-```yaml (bicep-assets-config.yaml)
+> bicep-assets-config.yaml
+```yaml
 assets:
   - api.yaml
   - name: static_frontend
@@ -26,25 +27,23 @@ assets:
     plugin: vite
 ```
 
-## Deploy/Upload the generated assets
-
-```sh
-$ bicep-assets deploy
-```
-
 ## Use the asset and decide in bicep what to do with it
 
+> main.bicep
 ```bicep
 import { assets } from './bicep-assets.bicep'
 
+// Create a simple storage account to host a static site
 resource staticStiteStorageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: 'staticStiteStorageAccount'
   kind: 'StorageV2'
 }
 
+// Extract the website asset to the static site storage account using the custom resource provider
 module assetExtract 'ts/shared:bicep-assets-extract:1.0.0' = {
   name: 'Deploy static website'
   params: {
+    // Here we use the static frontend asset entry from the generated bicep file 'bicep-assets.bicep'
     asset: assets.static_frontend
     target: {
       storageAccount: staticStiteStorageAccount.name
@@ -52,6 +51,13 @@ module assetExtract 'ts/shared:bicep-assets-extract:1.0.0' = {
     }
   }
 }
+```
+
+## Deploy/Upload the generated assets and run your bicep deployment
+
+```sh
+$ bicep-assets deploy
+$ az stack group create --name static-site-stack -g static-site-rg -f main.bicep
 ```
 
 # Installation
@@ -172,17 +178,18 @@ By default bicep assets can be used to copy files and folders into the azure spa
 | :- | :- |
 | vite | Build a static frontend using vite. This will call the vite command in the specified path and use the output param to redirect teh output in the asset storage |
 | nodejs | This will bundle a nodejs application as a full functioning function app (v4) |
-| << t.b.d. >> | Plugins will be added. Currently its node oriented but this is not te target state. There will follow plugins to generate a good python or powershell function (and others) | 
+| << t.b.d. >> | Plugins will be added. Currently its node oriented but this is not the target state. There will follow plugins to generate a good python or powershell function (and others) | 
 
 # Explanation why this was created
 
 Originally we worked primarily with AWS in my company using CDK. A full integrated way of working was possible due to the asset management in CDK. We could execute build commands and use the output directly in the deployment.
 
-When we moved more towards azure I thought bicep was a decent tool and maybe for our end users (often less technical) better then AWS CDK.
-However in bicep I quickly discovered a very anoying flow:
-- create a function app (v4) in bicep including storage accounts
-- upload the function source to the storage account
-- create a zipdeploy package
+When we moved more towards azure I thought bicep was a decent tool and maybe for our less technical end users better then AWS CDK.
+
+However, using bicep I quickly discovered a very frustrating flow:
+1. create a function app (v4) in bicep including storage accounts
+2. upload the function source to the storage account created in step 1
+3. create a zipdeploy package to deploy the function
 
 Even in a simple variant we had 2 deployments separated by an upload. When the application grows this becomes even more troublesome.
 
@@ -191,7 +198,6 @@ With this cli application everything can be orchestrated in 1 bicep deployment w
 - consistency
 - ease of use
 - standardizing way of workings
-
 
 # How does it work
 
